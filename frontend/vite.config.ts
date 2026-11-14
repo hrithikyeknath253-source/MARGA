@@ -3,12 +3,13 @@ import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import path from 'path';
 
-// https://vitejs.dev/config/
+// GitHub Pages serves this repository under /MARGA/.
+// Local development and root-domain hosting continue to use /.
+const base = process.env.GITHUB_PAGES === 'true' ? '/MARGA/' : '/';
+
 export default defineConfig({
-  plugins: [
-    react(),
-    tailwindcss(),
-  ],
+  base,
+  plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
       '@shared': path.resolve(__dirname, '../shared'),
