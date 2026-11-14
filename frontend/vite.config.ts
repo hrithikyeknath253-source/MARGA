@@ -3,9 +3,9 @@ import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import path from 'path';
 
-// GitHub Pages serves this repository under /MARGA/.
-// Local development and root-domain hosting continue to use /.
-const base = process.env.GITHUB_PAGES === 'true' ? '/MARGA/' : '/';
+// Configure base path: relative base './' allows hosting at root domains (Vercel, Netlify)
+// as well as repository subpaths (GitHub Pages) seamlessly.
+const base = process.env.VITE_BASE_PATH || './';
 
 export default defineConfig({
   base,
